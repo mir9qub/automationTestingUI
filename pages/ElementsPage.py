@@ -2,6 +2,7 @@ import time
 from . BasePage import BasePage
 from pageElements.ElementsLocators import *
 from pageElements.texts.ElementsTexts import *
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class ElementsPage(BasePage):
@@ -21,6 +22,9 @@ class ElementsPage(BasePage):
         self.go_to_site()
         self.click_element(LCT_ELEMENTS_B)
         self.click_button(LCT_CHECK_BOX_B)
+        self.click_button(LCT_CHECKBOX_HOME_B)
+        elements = self.find_elements(LCT_CHECKBOX_HOME_O)
+        assert len(elements) > 0, f"Expected list of elements, Actual len is {len(elements)}"
 
     def check_radio_button(self):
         self.go_to_site()
@@ -37,7 +41,18 @@ class ElementsPage(BasePage):
         ...
 
     def check_buttons(self):
-        ...
+        self.go_to_site()
+        self.click_element(LCT_ELEMENTS_B)
+        self.click_button(LCT_BUTTONS_B)
+        actions = ActionChains(self.driver)
+        self.double_click_button(LCT_DOUBLE_CLICK_B)
+        self.check_visibility_by_locator(LCT_DOUBLE_CLICK_O)
+        # right_click_element = self.find_element(LCT_RIGHT_CLICK_B)
+        # actions.context_click(right_click_element).perform()
+        # self.check_visibility_by_locator(LCT_RIGHT_CLICK_O)
+        # self.click_button(LCT_DYNAMIC_CLICK_B)
+        # self.check_visibility_by_locator(LCT_CLICK_O)
+        time.sleep(2)
 
     def check_links(self):
         ...
