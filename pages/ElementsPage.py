@@ -1,11 +1,11 @@
 import time
-from . BasePage import BasePage
-from pageElements.ElementsLocators import *
+from . Page import Page
+from pageElements.ElementsPageLocators import *
 from pageElements.texts.ElementsTexts import *
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-class ElementsPage(BasePage):
+class ElementsPage(Page):
 
     def check_text_box(self):
         self.go_to_site()

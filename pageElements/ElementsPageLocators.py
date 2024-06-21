@@ -3,6 +3,8 @@ from selenium.webdriver.common.by import By
 
 # Buttons
 LCT_ELEMENTS_B = (By.XPATH, "//*[@id='app']/div/div/div/div/div[1]/div/div[1]")
+LCT_FORMS_B = (By.XPATH, "//*[@id='app']/div/div/div/div/div[1]/div/div[1]")
+LCT_FORMS_PRACTICE_B = (By.XPATH, "//*[@id='item-0']")
 LCT_TEXT_BOX_B = (By.XPATH, "/html/body/div/div/div/div[2]/div[1]/div/div/div[1]/div/ul/li[1]")
 LCT_CHECK_BOX_B = (By.XPATH, "/html/body/div/div/div/div[2]/div[1]/div/div/div[1]/div/ul/li[2]")
 LCT_RADIO_BUTTON_B = (By.XPATH, "/html/body/div/div/div/div[2]/div[1]/div/div/div[1]/div/ul/li[3]")

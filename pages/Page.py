@@ -1,9 +1,10 @@
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-class BasePage:
+class Page:
 
     def __init__(self, driver):
         self.driver = driver
@@ -46,3 +47,14 @@ class BasePage:
 
     def check_element_has_text(self, locator):
         pass
+
+    def select_by_value(self, locator, value):
+        select_element = self.find_element(locator)
+        select = Select(select_element)
+        select.select_by_value(value)
+        option_list = select.options
+        print(option_list)
+
+    def scroll_to_element(self, locator):
+        element = self.find_element(locator)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
